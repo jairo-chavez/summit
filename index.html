@@ -1,0 +1,2963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Huánuco Tech</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+<style>
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 2rem;
+  background-color: #f5f5f5;
+  
+}
+section {
+  scroll-margin-top: 130px; 
+}
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #000501;
+  box-shadow: 5px 5px 15px black;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+}
+
+/* Botón hamburguesa (visible en móvil) */
+.menu-btn {
+  background: none;
+  color: #fff;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Logo centrado en móvil */
+.logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo img {
+  max-width: 100%;
+  height: 44px; 
+  object-fit: contain;
+}
+
+/* Sidebar (off-canvas móvil) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;             /* oculto por defecto */
+  width: 260px;
+  height: 100vh;
+  background: #000501;
+  color: #fff;
+  padding-top: 60px;
+  transition: left 0.32s ease;
+  z-index: 1300;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+}
+
+/* Overlay (cuando el sidebar está abierto) */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 1250;
+}
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/*heroooo*/
+.hero{
+  position: relative;
+}
+.hero picture,
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.hero-cta {
+  background-color: #007445;
+  border-radius: 50px;
+  position: absolute;
+  bottom: -0.62rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.btn-principal {
+  display: inline-block;
+  font-size: 1.3rem;
+  padding: 1rem 2rem;
+  transition: 0.3s;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.hero-cta:hover {
+  background: #00a86b;
+}
+
+/*evento y contador*/
+.evento {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    background-color: #000501;
+  text-align: center;
+  padding: 1rem;
+}
+
+.descripcion {
+  max-width: 1100px;
+  font-size: 1.4rem;
+  margin: 2rem 1rem;
+  color: #fff;
+  text-wrap: pretty;
+}
+
+.fecha {
+  font-size: 1.5rem;
+  color: #04a364;
+  margin-bottom: 2.2rem;
+}
+
+.contador {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contador div {
+    background: none;
+  border: 2px solid #00a165;
+  color: #00a165;
+  padding: 0.3rem 1.2rem ;
+  border-radius: 5px;
+  min-width: 50px;
+  transition: all 0.3s ease;
+
+}
+
+.contador span {
+  display: block;
+  font-size: 1.2rem ;
+  font-weight: bold;
+  animation: bounceNum 1.2s infinite ease-in-out;
+
+}
+@keyframes bounceNum {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/*agendaaaaa*/
+
+.agenda {
+      margin: 2rem auto;
+      max-width: 1000px;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      color: #333;
+      padding: 1rem;
+    }
+.agenda h2{
+  text-align: center;
+  padding-bottom: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #007445;
+}
+    /* Tabs1 */
+    .tabs1 {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn1 {
+      font-size: 1.2rem;
+      padding: 0.8rem 1.4rem;
+      cursor: pointer;
+      background: #f0f0f0;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn1:hover {
+      background: #e0e0e0;
+    }
+
+    .tab-btn1.active1 {
+      background: #007445;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+    }
+
+    /* Tab content */
+    .tab-content1 {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .tab-content1.active1 {
+      display: block;
+      opacity: 1;
+    }
+
+    /* === Mobile first: Cards === */
+    .agenda-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .agenda-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      padding: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    .agenda-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .agenda-card h3 {
+      margin: 0 0 0.8rem;
+      color: #004aad;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .agenda-card p {
+      margin: 0.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Sub-card para paralelos */
+    .sub-card {
+      margin-top: 0.8rem;
+      background: #f4f6fb;
+      border-left: 4px solid #004aad;
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .sub-card p {
+      margin: 0.2rem 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .sub-card strong {
+      color: #004aad;
+    }
+
+    /* === Desktop: Tabla === */
+    .agenda-table {
+      display: none; /* Ocultar por defecto en mobile */
+    }
+
+
+
+
+/*SUSCRIBETE*/
+/*formulario de registro*/
+.subscribe-section {
+  background: #000501;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  animation: fadeInUp 1s ease;
+}
+
+.subscribe-container h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.subscribe-container p {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Formulario - diseño base para móvil */
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Grupo con ícono e input */
+.input-group {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 30px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s;
+}
+
+.input-group:focus-within {
+  box-shadow: 0 0 12px rgba(255,255,255,0.8);
+}
+
+.input-icon {
+  font-size: 1.2rem;
+  margin-right: 8px;
+  color: #00a165;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 10px;
+  flex: 1;
+  border-radius: 30px;
+}
+
+/* Botón */
+.subscribe-form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  background: black;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.subscribe-form button:hover {
+  transform: scale(1.05);
+  background: #f2f2f2;
+  color: black;
+  box-shadow: 0 4px 10px rgba(255,255,255,0.3);
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*complicesss*/
+.section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #231917;
+}
+
+/* Pestañas */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 5.5rem;
+  border-bottom: 2px solid #ddd;
+}
+
+.tab-btn2 {
+  background: none;
+  border: none;
+  padding: 0.6rem 0.4rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.tab-btn2:hover {
+  color: #04a364;
+}
+
+.tab-btn2.active {
+  color: #04a364;
+  font-weight: bold;
+}
+
+.tab-btn2.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 3px;
+  background: #04a364;
+  border-radius: 2px;
+}
+
+/* Contenido */
+.tab-content {
+  display: none;
+  margin-top: 1.2rem;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Animación tipo marquee --- */
+.logo-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px; /* centrado */
+  margin: 0 auto;
+  height: 100px;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.logo-track {
+  display: flex;
+  gap: 40px;
+  animation: scroll 60s linear infinite;
+  width: max-content;
+  align-items: center;
+}
+
+/* Pausa al hacer hover */
+.logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+
+/* 👇 Estilos base: móvil primero */
+.logo-track img {
+  max-height: 60px;        /* móvil */
+  max-width: 120px;    /* móvil */
+  object-fit: contain;
+  filter: grayscale(30%);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.logo-track img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+
+
+
+/*el futuro es ahoraaa*/
+.future-section {
+  background: linear-gradient(135deg, #000 0%, #0a0a23 100%);
+  color: #fff;
+  padding: 4rem 2rem;
+}
+
+.future-container {
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  align-items: center;
+}
+
+.future-text h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 800;
+  color: #00ffae;
+  margin-bottom: 1rem;
+}
+
+/*cohete animado*/
+.rocket {
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  animation: float 2s infinite ease-in-out;
+}
+
+.rocket::after {
+  content: "🔥";
+  position: absolute;
+  left: -15%;
+  bottom: -20px;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  opacity: 0.8;
+  animation: flame 0.5s infinite alternate;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes flame {
+  0% { transform: translateY(0) scale(1); opacity: 0.6; }
+  100% { transform: translateY(5px) scale(1.2); opacity: 1; }
+}
+
+
+
+
+.future-text p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.future-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.stat p {
+  margin-top: 0.5rem;
+  color: #aaa;
+}
+
+/* Animación hover */
+.stat:hover h3 {
+  transform: scale(1.1);
+  color: #00ffae;
+}
+
+/*galería*/
+.experiencia {
+  padding: 40px 20px;
+  background: #d9e9ec;
+}
+
+.experiencia h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* Imagenes en carrusel escritorio */
+.swiper-slide img {
+  width: 100%;
+  padding: 10px;
+    border-radius: 20px;
+
+}
+
+/* Galería en móvil */
+.mobile-gallery1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.mobile-gallery1 img {
+  width: 90%;
+  border-radius: 10px;
+}
+
+.mySwiper{
+    display: none;
+    font-size:4rem ;
+  }
+
+/*quienes somos*/
+
+
+/*sponsors*/
+    /* Contenedor general de sponsors */
+.sponsors1 {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #010101;
+  color: #fff;
+}
+
+.sponsors1 h2 {
+  font-size: 2.2rem;
+  margin-bottom: 4rem;
+  letter-spacing: 1px;
+}
+.sponsor-level1{
+  background-color: #ebe7e7;
+   margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+.sponsor-level {
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  background: #111;
+  transition: transform 0.3s ease;
+}
+
+.sponsor-level:hover {
+  transform: translateY(-5px);
+}
+.sponsor-level1:hover {
+  transform: translateY(-5px);
+}
+.sponsor-level1 h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.sponsor-level h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Colores de categorías */
+.oro { border: 2px solid gold; }
+.plata { border: 3px solid silver; }
+.bronce { border: 2px solid #cd7f32; }
+
+/* Logos con grid */
+.logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.logos img {
+  max-width: 140px;
+  transition: all 0.3s ease;
+  filter: grayscale(0%) opacity(1); /* en móvil siempre a color */
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* CTA */
+.cta-container {
+  margin-top: 3rem;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #04633d, #00a86b);
+  color: #fff;
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+/*forma parte*/
+.colaboradores {
+  padding: 4rem 2rem;
+  background: #010101;
+  text-align: center;
+  color: #fff;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.cards-flex {
+  display: flex;
+  flex-direction: column; /* móvil: en columna */
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 16px;
+  background: #111;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #00a86b;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #ddd;
+}
+
+.card-btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #04633d, #00a86b);
+  transition: transform 0.3s ease;
+}
+
+/*preguntas frecuentes*/
+.faq { max-width: 900px; margin: 0 auto; padding: 3.5rem 0; }
+.faq-title { text-align: center; font-size: 1.8rem; margin-bottom: 1rem; color: #010101; }
+
+/* ===== Mobile: Accordion por categoría ===== */
+.faq-accordion { display: block; }
+.acc-item { border: 1px solid #e6e6e6; border-radius: 8px; margin-bottom: 0.8rem; background: #fff; overflow: hidden; }
+.acc-header {
+  width: 100%; text-align: left; padding: 0.9rem 1rem; border: 0; background: #f6f8f7;
+  font-weight: 700; color: #010101; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  transition: background .25s ease;
+}
+.acc-header:hover { background: #eef3f1; }
+.acc-icon { font-size: 1.3rem; color: #007445; transition: transform .25s ease; }
+.acc-item.open .acc-icon { transform: rotate(45deg); }
+
+.acc-panel { display: none; padding: 0.2rem 1rem 0.8rem; background: #fff; }
+
+/* Items dentro de cada categoría */
+.faq-item { border-top: 1px dashed #e1e1e1; padding: 0.7rem 0; }
+.faq-item:first-child { border-top: 0; }
+.faq-q {
+  width: 100%; text-align: left; background: transparent; border: 0; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #010101; padding: 0.3rem 0;
+}
+.faq-q span { color: #007445; transition: transform .25s ease; }
+.faq-item.open .faq-q span { transform: rotate(45deg); }
+
+.faq-a { display: none; color: #333; line-height: 1.55; padding: 0.4rem 0 0.2rem; }
+
+/* ===== Desktop: Tabs ===== */
+.faq-tabs { display: none; } /* oculto en mobile */
+
+/*mini transiciones*/
+.faq-a, .acc-panel { transition: all .25s ease; }
+
+
+/*footer*/
+/* Marquee */
+.footer-marquee {
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  border-top: 2px solid #00ffae;
+  font-family: 'Arial', sans-serif;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.marquee-content {
+  display: inline-block;
+  
+  padding-left: 90%;
+  animation: scroll 30s linear infinite;
+}
+
+.marquee-content span {
+  display: inline-block;
+  margin: 0 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+
+.campus{
+  color: #007445;
+}
+
+/* Footer main content */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #000;
+}
+
+.footer-left {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.footer-left a {
+  color: #aaa;
+  text-decoration: none;
+}
+.footer-left a:hover {
+  color: #00ffae;
+}
+
+.footer-right a {
+  color: #fff;
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+.footer-right a:hover {
+  color: #00ffae;
+}
+
+@media (min-width: 992px) {
+
+
+    body {
+  padding-top: 8rem;
+}
+     /* Oculta los controles móviles */
+  .menu-btn,
+  .close-btn,
+  .overlay { display: none; }
+
+  /* Header layout para escritorio */
+  .header {
+    padding: 14px 28px;
+    align-items: center;
+  }
+
+  /* Logo a la izquierda */
+  .logo {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+  }
+  .logo img { height: 94px; }
+
+  /* Convertimos el sidebar en nav horizontal visible */
+  .sidebar {
+    position: static;
+    left: auto;
+    width: auto;
+    height: auto;
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    box-shadow: none;
+    transition: none;
+    display: block;   /* se muestra en la cabecera */
+    margin-left: auto; /* empuja al nav a la derecha */
+  }
+
+  .sidebar ul {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+  }
+
+  .sidebar ul li {
+    padding: 0;
+    border: none;
+  }
+
+  .sidebar ul li a {
+    font-size: 1.3rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 10px;
+    transition: color 0.18s ease, transform 0.18s ease;
+  }
+
+  .sidebar ul li a:hover {
+    border-bottom: 1px solid #00a165;
+    transform: translateY(-2px);
+  }
+
+  /*semana importante*/
+  /*evento y contador*/
+.evento {
+  padding-top: 3rem;
+}
+
+.descripcion {
+  max-width: 800px;
+  font-size: 2.8rem;
+  margin: 3rem 0;
+}
+
+.fecha {
+  font-size: 3.5rem;
+  color: #04a364;
+  margin-bottom: 3.5rem; 
+  font-weight: 700;
+}
+
+.contador {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.contador div {
+  padding: 0.5rem 2.5rem;
+  margin: 1rem 1.5rem;
+  border-radius: 12px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.contador div:hover {
+  background-color: #00a165;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 161, 101, 0.5);
+  transform: translateY(-3px);
+}
+
+.contador span {
+  font-size: 3.2rem;
+}
+
+small{
+  font-size: 1rem;
+}
+.btn-registro {
+  padding: 1rem 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
+}
+
+
+/*agendaaa*/
+.agenda-cards { 
+  display: none; 
+}
+      .agenda-table {
+        display: table;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        text-align: left;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .agenda-table th,
+      .agenda-table td {
+        padding: 1rem;
+        vertical-align: top;
+        font-size: 1.2rem;
+      }
+
+      .agenda-table thead th {
+        background: #007445;
+        color: #fff;
+        font-weight: 600;
+        text-align: center;
+      }
+      .tamanio{
+        color: #003580;
+        font-size: 1rem;
+      }
+      .agenda-table tbody tr:nth-child(even) {
+        background: #f3f3f3;
+      }
+.mype{
+  font-size: 4rem;
+    color: #333;
+
+}
+
+      .agenda-table td:first-child {
+        text-align: center;
+        width: 20%;
+      }
+
+      .agenda-table td:nth-child(2),
+      .agenda-table td:nth-child(3) {
+        width: 40%;
+      }
+
+      .agenda-table .parallel {
+        font-style: italic;
+        font-size: 1rem;
+        color: #333;
+      }
+     .agenda-table td{
+  vertical-align: middle;   /* centra verticalmente */
+  text-align: center; 
+  border-top: 1px solid black;
+}
+
+.libre{
+  background-color: #fff;
+  color: #000501;
+  letter-spacing: 1.5px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.hora-color{
+  background-color: #000501;
+  color: #fff;
+  border: 1px solid #007445;
+}
+
+/*sponsorssass*/
+.logos img {
+  max-width: 200px;
+    filter: grayscale(100%) opacity(0.9);
+    animation: none; /* desactiva flotación */
+  }
+  .logos img:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.08);
+  }
+
+  .cta-button:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+  }
+
+  /*complicesss*/
+
+  .logo-slider{
+    height: 250px;
+  }
+  .logo-track{
+      gap: 80px;
+
+  }
+  .logo-track img.logo-comercio {
+    width: 140px;
+    height: 100px;
+  }
+  .logo-track img {
+    max-height: 200px;    
+    max-width: 150px;
+    
+    transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  }
+ 
+  .logo-track img:hover{
+    transform: scale(1.15); /* zoom */
+    filter: brightness(1.2); /* ilumina */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* resplandor */
+    border-radius: 12px; /* opcional: esquinas redondeadas */
+  }
+
+
+  /*2024*/
+ .mobile-gallery1 {
+    display: none;
+  }
+  .mySwiper{
+    display: block;
+  }
+
+  /*el futuro es ahoraaa*/
+ .future-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .future-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  /*forma parte*/
+  .cards-flex {
+    flex-direction: row; /* columnas lado a lado */
+    gap: 1.5rem;
+  }
+
+  .card {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .card p {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+  }
+
+  .cards-flex:hover .card {
+    flex: 0.9; /* las demás se encogen */
+  }
+
+  .cards-flex .card:hover {
+    flex: 1.3; /* la activa se expande */
+  }
+
+  .cards-flex .card:hover p {
+    opacity: 1;
+    max-height: 300px;
+    margin-bottom: 1.5rem;
+  }
+
+
+  /*preguntas frecuentes*/
+  .faq-accordion { display: none; } /* oculto en desktop */
+  .faq-tabs { display: block; }
+  .tab-list {
+    display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .tab-btn {
+    border: 2px solid #007445; background: #fff; color: #010101; padding: 0.6rem 1rem; border-radius: 999px;
+    font-weight: 700; cursor: pointer; transition: background .25s ease, color .25s ease, transform .2s ease;
+  }
+  .tab-btn:hover { transform: translateY(-1px); }
+  .tab-btn.active { background: #007445; color: #ffffff; }
+
+  .tab-panels { background: #fff; border: 1px solid #e6e6e6; border-radius: 10px; padding: 1rem 1rem 0.5rem; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* Reutilizamos el acordeón interno de preguntas en desktop */
+  .tab-panel .faq-item { border-top: 1px dashed #e1e1e1; padding: 0.9rem 0; }
+  .tab-panel .faq-q { font-size: 1rem; }
+
+
+  /*footer*/
+  .footer-marquee{
+    padding-top: 1rem;
+  }
+  .marquee-content span {
+  margin: 1rem 2rem;
+  padding: 0 16rem;
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+  .footer-content {
+    flex-direction: row;
+    gap: 145px;
+
+  }
+  .footer-left{
+
+    font-size: 1.5rem;
+  }
+  .footer-left a{
+    display: inline-block;
+    padding: 1rem 2rem;
+  }
+  .footer-right a{
+    font-size: 2rem;
+    padding: 0 1rem;
+  
+  }
+} 
+</style>
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+  <button id="menu-btn" class="menu-btn" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+
+  <div class="logo">
+    <a href="index.html"><img src="imagenes/logo-fondoBlanco.png" alt="Logo de la empresa"></a>
+  </div>
+
+  <!-- El mismo nav se usa para móvil (sidebar) y escritorio (barra horizontal) -->
+  <nav class="sidebar" id="sidebar" aria-hidden="true">
+    <button id="close-btn" class="close-btn" aria-label="Cerrar menú">&times;</button>
+    <ul>
+      <li><a href="#agenda">Agenda</a></li>
+      <li><a href="#patrocinadores">Patrocina</a></li>
+      <li><a href="#edicion">Edición 2024</a></li>
+      <li><a href="#complices">Nuestros Cómplices</a></li>
+      <li><a href="#forma">Beneficios</a></li>
+      <li><a href="#preguntas">Preguntas Frecuentes</a></li>
+    </ul>
+  </nav>
+</header>
+<!-- Overlay (clic fuera cierra el sidebar en móvil) -->
+<div id="overlay" class="overlay" aria-hidden="true"></div>
+
+
+
+  <!-- HERO IMAGE -->
+<section class="hero">
+  <picture>
+    <!-- Escritorio -->
+    <source media="(min-width: 1024px)" srcset="imagenes/header-escritorio.jpg">
+    <!-- Tablet -->
+    <source media="(min-width: 480px)" srcset="imagenes/header-tablet.jpg">
+    <!-- Móvil (por defecto) -->
+    <img src="imagenes/header-movil.jpg" alt="Imagen principal">
+  </picture>
+
+    <!-- CTA centrado en la parte baja del hero -->
+  <div class="hero-cta">
+    <a href="https://campusincuval.unheval.edu.pe/admin/evento/11" class="btn-principal" target="_blank"> Regístrate</a>
+  </div>
+</section>
+<section class="evento">
+  <p class="descripcion">
+    ¡La semana más importante de innovación y tecnología en Huánuco!
+  </p>
+  <p class="fecha">
+    Del <strong>15 al 19 de Septiembre</strong>
+  </p>
+
+  <div class="contador" id="contador">
+    <div><span id="dias">0</span><small>días</small></div>
+    <div><span id="horas">0</span><small>horas</small></div>
+    <div><span id="minutos">0</span><small>min</small></div>
+    <div><span id="segundos">0</span><small>seg</small></div>
+  </div>
+   
+</section>
+
+
+<!--agendaaaaa-->
+<section class="agenda" id="agenda">
+  <h2>AGENDA</h2>
+    <div class="tabs1" role="tablist">
+      <button class="tab-btn1 active1" data-tab="dia1" role="tab" aria-selected="true">Día 1</button>
+      <button class="tab-btn1" data-tab="dia2" role="tab" aria-selected="false">Día 2</button>
+      <button class="tab-btn1" data-tab="dia3" role="tab" aria-selected="false">Día 3</button>
+      <button class="tab-btn1" data-tab="dia4" role="tab" aria-selected="false">Día 4</button>
+      <button class="tab-btn1" data-tab="dia5" role="tab" aria-selected="false">Día 5</button>
+    </div>
+
+    <!-- Día 1 -->
+    <div id="dia1" class="tab-content1 active1">
+      <!-- Versión cards -->
+      <div class="agenda-cards">
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 9:00 - 10:00 am</h3>
+          <p><b> <span>Apertura</span></b> <br>
+             <i> <span class="tamanio">Huánuco Tech +</span></i></p>
+
+          
+        </div>
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 10:00 - 1:00 pm</h3>
+          <p><b> <span>Business Game</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+        </div>
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 1:00 - 3:00 pm</h3>
+          <p>LIBRE</p>
+        </div>
+
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 3:00 - 4:00 pm</h3>
+          <p><b> <span>Pichanga Startupera</span></b> <br>
+          <i> <span class="tamanio">FIRMEASY - SACSMYPE - INCUVAL VENTURES</span></i></p>
+  
+        </div>
+
+         <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 4:00 - 5:00 pm</h3>
+          <p><b> <span>Pichanga Startupera</span></b> <br>
+          <i> <span class="tamanio">FIRMEASY - SACSMYPE - INCUVAL VENTURES</span></i></p>
+  
+        </div>
+
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 5:30 - 6:00 pm</h3>
+          <p><b> <span >MYPE Up:<br> Cómo aterrizar tu idea de negocio paso a paso </b></span> <br>
+          <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+          <div class="sub-card">
+            <p><strong>En Paralelo:</strong><p><b> <span>Pichanga Startupera</span></b> <br>
+            <i> <span class="tamanio">FIRMEASY - SACSMYPE - INCUVAL VENTURES</span></i></p></p>
+          </div>
+        </div>
+
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 6:00 - 6:30 pm</h3>
+          <p><b> <span >MYPE Up: Control sin enredos</b></span> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+          <div class="sub-card">
+            <p><strong>En Paralelo:</strong><p><b> <span>Pichanga Startupera</span></b> <br>
+            <i> <span class="tamanio">FIRMEASY - SACSMYPE - INCUVAL VENTURES</span></i></p></p>
+          </div>   
+        </div>
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 6:30 - 7:00 pm</h3>
+          <p><b> <span >MYPE Up: Mi primera facturación como emprendedor</b></span> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+          <div class="sub-card">
+            <p><strong>En Paralelo:</strong><p><b> <span>Pichanga Startupera</span></b> <br>
+            <i> <span class="tamanio">FIRMEASY - SACSMYPE - INCUVAL VENTURES</span></i></p></p>
+          </div>
+        </div>
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 7:00 - 7:30 pm</h3>
+          <p><b> <span >MYPE Up: Formaliza sin miedo</b></span> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+          <div class="sub-card">
+            <p><strong>En Paralelo:</strong><p><b> <span>Pichanga Startupera</span></b> <br>
+            <i> <span class="tamanio">FIRMEASY - SACSMYPE - INCUVAL VENTURES</span></i></p></p>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- Versión tabla -->
+      <table class="agenda-table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Evento Principal</th>
+            <th>Evento Paralelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hora-color">9:00 - 10:00 am</td>
+            <td><b> <span>APERTURA</span></b> <br>
+             <i> <span class="tamanio">HUÁNUCO TECH +</span></i></td>
+            <td rowspan="4" class="paralelo">
+              <div class="parallel">
+                --------
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="hora-color">10:00 - 11:00 am</td>
+            <td rowspan="3"><b> <span>Business Game</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+
+          </tr>
+          <tr>
+            <td class="hora-color">11:00 - 12:00 pm</td>
+          </tr>
+          <tr>
+            <td class="hora-color">12:00 - 1:00 pm</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="libre">LIBRE</td>
+          </tr>
+          <tr>
+            <td class="hora-color">3:00 - 4:00 pm</td>
+            <td>--------</td>
+            <td rowspan="7" class="paralelo">
+              <div class="">
+                <b> <span>Pichanga Startupera</span></b> <br>
+             <i> <span class="tamanio">FIRMEASY - SACSMYPE - INCUVAL VENTURES</span></i>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="hora-color">4:00 - 5:00 pm</td>
+            <td>--------</td>
+          </tr>
+          <tr>
+            <td class="hora-color">5:30 - 6:00 pm</td>
+            <td><b> <span >MYPE Up: Cómo aterrizar tu idea de negocio paso a paso </b></span> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td> 
+          </tr>
+          
+          <tr class="hroa-color">
+            <td class="hora-color">6:00 - 6:30 pm</td>
+            <td><b> <span >MYPE Up: Control sin enredos</b></span> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">6:30 - 7:00 pm</td>
+            <td><b> <span >MYPE Up: Mi primera facturación como emprendedor</b></span> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">7:00 - 7:30 pm</td>
+            <td><b> <span >MYPE Up: Formaliza sin miedo</b></span> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Día 2 -->
+    <div id="dia2" class="tab-content1">
+      
+      <div class="agenda-cards">
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 8:30 - 12:00 pm</h3>
+      <p><b><span>Startup Bootcamp: <br>¿Cómo acelerar el ecosistema emprendedor Huanuqueño?</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 1:00 - 3:00 pm</h3>
+      <p>LIBRE</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 3:00 - 5:30 pm</h3>
+      <p><b><span>Emprendiendo desde la Universidad</span></b> <br>
+         <i><span class="tamanio">I NEXT UNHEVAL</span></i></p>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 5:30 - 6:00 pm</h3>
+      <p><b><span>Startup Bootcamp: <br>Oportunidades para startups peruanas en el ecosistema chileno.</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong><b><span>Emprendiendo desde la Universidad</span></b> <br>
+         <i><span class="tamanio">I NEXT UNHEVAL</span></i></p>
+      </div>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 6:00 - 6:30 pm</h3>
+      <p><b><span>Startup Bootcamp: <br>ThinkLikeAStartup: Design Thinking para emprendedores</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong><b><span>Emprendiendo desde la Universidad</span></b> <br>
+         <i><span class="tamanio">I NEXT UNHEVAL</span></i></p>
+      </div>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 6:30 - 7:00 pm</h3>
+      <p><b><span>Startup Bootcamp: <br>VC Sin Filtro: La Hora de la Verdad para Startups</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong><b><span>Emprendiendo desde la Universidad</span></b> <br>
+         <i><span class="tamanio">I NEXT UNHEVAL</span></i></p>
+      </div>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 7:00 - 7:30 pm</h3>
+      <p><b><span>Startup Bootcamp: <br>Speed Mentoring: 3 rondas con mentores altamente cualificados</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong><b><span>Emprendiendo desde la Universidad</span></b> <br>
+         <i><span class="tamanio">I NEXT UNHEVAL</span></i></p>
+      </div>
+    </div>
+
+  </div>
+
+      <table class="agenda-table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Evento Principal</th>
+            <th>Evento Paralelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hora-color">8:30 - 12:00 pm</td>
+            <td><b> <span>Startup Bootcamp: <br>¿Cómo acelerar el ecosistema emprendedor Huanuqueño?</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+            <td class="paralelo">
+              <div class="parallel">
+                --------
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" class="libre">Libre</td>
+          </tr>
+          <tr>
+            <td class="hora-color">3:00 - 5:30 pm</td>
+            <td>--------</td>
+            <td rowspan="5" class="paralelo">
+              <div class="">
+                <b> <span>Emprendiendo desde la Universidad</span></b> <br>
+             <i> <span class="tamanio"> I NEXT UNHEVAL</span></i>
+              </div></td>
+          </tr>
+          <tr>
+            <td class="hora-color">5:30-6:00 pm</td>
+            <td><b> <span>Startup Bootcamp: <br>Oportunidades para startups peruanas en el ecosistema chileno.</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">6:00 - 6:30 pm</td>
+            <td><b> <span>Startup Bootcamp: <br>ThinkLikeAStartup: Design Thinking para emprendedores</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">6:30 - 7:00 pm</td>
+            <td><b> <span>Startup Bootcamp: <br>VC Sin Filtro: La Hora de la Verdad para Startups</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">7:00 - 7:30 pm</td>
+            <td><b> <span>Startup Bootcamp: <br>Speed Mentoring: 3 rondas con mentores altamente cualificados</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Día 3 -->
+    <div id="dia3" class="tab-content1">
+      <div class="agenda-cards">
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 9:00 - 9:30 am</h3>
+      <p><b> <span>Encuentro de Semilleros Regional</span></b> <br>
+             <i> <span class="tamanio">Dirección de Investigación - UNHEVAL</span></i></p>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 9:30 - 10:00 am</h3>
+      <p><b><span>Startup Power: <br>Oportunidades para CEO’S y profesionales en el extranjero</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong> <b> <span>Encuentro de Semilleros Regional</span></b> <br>
+             <i> <span class="tamanio">Dirección de Investigación - UNHEVAL</span></i></p>
+      </div>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 10:00 - 10:30 am</h3>
+      <p><b><span>Startup Power: <br>¿Qué necesita una startup en el 2025 para crecer en Perú a Latam?</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong> <b> <span>Encuentro de Semilleros Regional</span></b> <br>
+             <i> <span class="tamanio">Dirección de Investigación - UNHEVAL</span></i></p>
+      </div>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 10:30 - 11:00 am</h3>
+      <p><b><span>Startup Power: <br>GROWTH PARA STARTUPS</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong> <b> <span>Encuentro de Semilleros Regional</span></b> <br>
+             <i> <span class="tamanio">Dirección de Investigación - UNHEVAL</span></i></p>
+      </div>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 11:00 - 1:00 pm</h3>
+      <p><b><span>Startup Power: <br>Training pitch</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong> <b> <span>Encuentro de Semilleros Regional</span></b> <br>
+             <i> <span class="tamanio">Dirección de Investigación - UNHEVAL</span></i></p>
+      </div>
+    </div>
+
+
+
+    
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 1:00 - 3:00 pm</h3>
+      <p>LIBRE</p>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 3:00 - 3:30 pm</h3>
+      <p><b><span>Foro de Empresas</span></b> <br>
+         <i><span class="tamanio">CITE AMBO</span></i></p>
+      
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 3:30 - 4:00 pm</h3>
+      <p><b><span>Startup Power: <br>Aspectos legales básicos que toda startup debe conocer</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong> <b><span>Foro de Empresas</span></b> <br>
+         <i><span class="tamanio">CITE AMBO</span></i></p>
+      </div>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 4:00 - 4:30 pm</h3>
+      <p><b><span>Startup Power: <br>Demo Day Incubación</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong><b><span>Foro de Empresas</span></b> <br>
+         <i><span class="tamanio">CITE AMBO</span></i></p>
+      </div>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 4:30 - 5:00 pm</h3>
+      <p><b><span>Startup Power: <br>Demo Day Incubación</span></b></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong><b><span>Foro de Empresas</span></b> <br>
+         <i><span class="tamanio">CITE AMBO</span></i></p>
+      </div>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 5:00 - 5:30 pm</h3>
+      <p><b><span>Startup Power: <br>Tendencias disruptivas hacia el 2030 en LatinoAmérica</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+      <div class="sub-card">
+        <p><strong>En Paralelo:</strong><b><span>Foro de Empresas</span></b> <br>
+         <i><span class="tamanio">CITE AMBO</span></i></p>
+      </div>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 5:30 - 6:30 pm</h3>
+      <p><b><span>Startup Power: <br>Demo Day Incubación</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 6:30 - 7:00 pm</h3>
+      <p><b><span>Startup Power: <br>Emprender desde la universidad: spin-offs y levantar capital</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+    </div>
+
+    <div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 7:00 - 7:30 pm</h3>
+      <p><b><span>Startup Power: <br>Cap Table y cómo tener una relación a largo plazo entre founders</span></b> <br>
+         <i><span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></p>
+    </div>
+
+  </div>
+
+      <table class="agenda-table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Evento Principal</th>
+            <th>Evento Paralelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hora-color">9:00 - 9:30 am</td>
+            <td>--------</td>
+            <td rowspan="8" class="paralelo">
+              <div class="">
+                <b> <span>Encuentro de Semilleros Regional</span></b> <br>
+             <i> <span class="tamanio">Dirección de Investigación - UNHEVAL</span></i>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="hora-color">9:30 -10:00 am</td>
+            <td><b> <span>Startup Power: <br>oportunidades para CEO’S y profesionales en el extranjero</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">10:00 -10:30 am</td>
+            <td><b> <span>Startup Power: <br>¿Qué necesita una startup en el 2025 para crecer en Perú a Latam?</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">10:30 -11:00 am</td>
+            <td><b> <span>Startup Power: <br>GROWTH PARA STARTUPS</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">11:00 -11:30 am</td>
+            <td rowspan="3"><b> <span>Startup Power: <br>Training pitch</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">11:30 -12:00 pm</td>
+          </tr>
+          <tr>
+            <td class="hora-color">12:00 -1:00 pm</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="libre">Libre</td>
+          </tr>
+          <tr>
+            <td class="hora-color">3:00 - 3:30 pm</td>
+            <td>--------</td>
+            <td rowspan="5" class="paralelo">
+              <div class="">
+                <b> <span>Foro de Empresas</span></b> <br>
+             <i> <span class="tamanio">CITE - Ambo</span></i>
+              </div> </td>
+          </tr>
+          <tr>
+            <td class="hora-color">3:30 - 4:00 pm</td>
+            <td><b> <span>Startup Power: <br>Aspectos legales básicos que toda startup debe conocer</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">4:00 - 4:30 pm</td>
+            <td rowspan="2"><b> <span>Startup Power: <br>Demo Day Incubación</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">4:30 - 5:00 pm</td>
+          </tr>
+          <tr>
+            <td class="hora-color">5:00 - 5:30 pm</td>
+            <td><b> <span>Startup Power: <br>Tendencias disruptivas hacia el 2030 en LatinoAmérica </span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">5:30 - 6:00 pm</td>
+            <td rowspan="2"><b> <span>Startup Power: <br>Demo Day Incubación</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+            <td>--------</td>
+          </tr>
+          <tr>
+            <td class="hora-color">6:00 - 6:30 pm</td>
+            <td>--------</td>
+          </tr>
+          <tr>
+            <td class="hora-color">6:30 - 7:00 pm</td>
+            <td><b> <span>Startup Power: <br>Emprender desde la universidad: spin-offs y levantar capital</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+            <td>--------</td>
+          </tr>
+          <tr>
+            <td class="hora-color">7:00 - 7:30 pm</td>
+            <td><b> <span>Startup Power: <br>Cap Table y cómo tener una relación a largo plazo entre founders</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+            <td>--------</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+        <!-- Día 4 -->
+    <div id="dia4" class="tab-content1">
+      <div class="agenda-cards">
+
+  <!-- 8:30 - 9:00 -->
+  <div class="agenda-card">
+    <h3><i data-lucide="clock"></i> 8:30 - 10:00 am</h3>
+      <p><b> <span>Feria de Innovación, Startups, Turismo y Sabores</span></b> <br><i> <span class="tamanio">Huánuco Tech +</span></i></p>
+  </div>
+
+<div class="agenda-card">
+    <h3><i data-lucide="clock"></i> 10:00 - 11:00 am</h3>
+      <p><b> <span>Capital Day:
+Presentación del progrma Mypes 4.0 para la generación plateada.</span></b> <br><i> <span class="tamanio">Startup Summit Regional
+Incuval Ventures - UNHEVAL</span></i></p>
+
+<div class="sub-card">
+        <p><strong>En Paralelo:</strong><b> <span>Feria de Innovación, Startups, Turismo y Sabores</span></b> <br><i> <span class="tamanio">Huánuco Tech +</span></i></p>
+      </div>
+  </div>
+
+  <div class="agenda-card">
+    <h3><i data-lucide="clock"></i> 11:00 - 11:30 am</h3>
+      <p><b> <span>Capital Day:
+IA para MYPES automatiza y potencia tu emprendimiento</span></b> <br><i> <span class="tamanio">Startup Summit Regional
+Incuval Ventures - UNHEVAL</span></i></p>
+
+<div class="sub-card">
+        <p><strong>En Paralelo:</strong><b> <span>Feria de Innovación, Startups, Turismo y Sabores</span></b> <br><i> <span class="tamanio">Huánuco Tech +</span></i></p>
+      </div>
+  </div>
+
+  <div class="agenda-card">
+    <h3><i data-lucide="clock"></i> 11:30 - 12:00 pm</h3>
+      <p><b> <span>Capital Day:
+Casos de éxito de emprendedores</span></b> <br><i> <span class="tamanio">Startup Summit Regional
+Incuval Ventures - UNHEVAL</span></i></p>
+
+<div class="sub-card">
+        <p><strong>En Paralelo:</strong><b> <span>Feria de Innovación, Startups, Turismo y Sabores</span></b> <br><i> <span class="tamanio">Huánuco Tech +</span></i></p>
+      </div>
+  </div>
+
+  <div class="agenda-card">
+    <h3><i data-lucide="clock"></i> 12:00 - 1:00 pm</h3>
+      <p><b> <span>Capital Day:
+Inversionistas sin filtro: lo que sí y lo que no</span></b> <br><i> <span class="tamanio">Startup Summit Regional
+Incuval Ventures - UNHEVAL</span></i></p>
+
+<div class="sub-card">
+        <p><strong>En Paralelo:</strong><b> <span>Feria de Innovación, Startups, Turismo y Sabores</span></b> <br><i> <span class="tamanio">Huánuco Tech +</span></i></p>
+      </div>
+  </div>
+
+<div class="agenda-card">
+      <h3><i data-lucide="clock"></i> 1:00 - 3:00 pm</h3>
+      <p>LIBRE</p>
+</div>
+
+<div class="agenda-card">
+    <h3><i data-lucide="clock"></i> 3:00 - 3:30 pm</h3>
+      <p><b> <span>Conferencias:
+Potenciando el turismo: Innovacion Turistica</span></b> <br><i> <span class="tamanio">Huánuco Tech +</span></i></p>
+
+<div class="sub-card">
+        <p><strong>En Paralelo:</strong><b> <span>Feria de Innovación, Startups, Turismo y Sabores</span></b> <br><i> <span class="tamanio">Huánuco Tech +</span></i></p>
+      </div>
+  </div>
+
+  <div class="agenda-card">
+    <h3><i data-lucide="clock"></i> 3:30 - 4:00 pm</h3>
+      <p><b> <span>Capital Day:
+Fuentes de financiamiento público en Perú</span></b> <br><i> <span class="tamanio">Startup Summit Regional
+Incuval Ventures - UNHEVAL</span></i></p>
+
+<div class="sub-card">
+        <p><strong>En Paralelo:</strong><b> <span>Feria de Innovación, Startups, Turismo y Sabores</span></b> <br><i> <span class="tamanio">Huánuco Tech +</span></i></p>
+      </div>
+  </div>
+
+  <div class="agenda-card">
+    <h3><i data-lucide="clock"></i> 4:00 - 6:00 pm</h3>
+      <p><b> <span>Capital Day:
+Ring de Las Startups</span></b> <br><i> <span class="tamanio">Startup Summit Regional
+Incuval Ventures - UNHEVAL</span></i></p>
+
+<div class="sub-card">
+        <p><strong>En Paralelo:</strong><b> <span>Feria de Innovación, Startups, Turismo y Sabores</span></b> <br><i> <span class="tamanio">Huánuco Tech +</span></i></p>
+      </div>
+  </div>
+
+  <div class="agenda-card">
+    <h3><i data-lucide="clock"></i> 6:00 - 9:00 pm</h3>
+      <p><b> <span>Networking</span></b> <br><i> <span class="tamanio">Huánuco Tech +</span></i></p>
+
+
+</div>
+
+</div>
+      <table class="agenda-table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Evento Principal</th>
+            <th>Evento Paralelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hora-color">8:30 - 9:00 am</td>
+            <td>--------</td>
+            <td rowspan="9" class="paralelo">
+              <div class="">
+                <b> <span>Feria de Innovación, Startups, Turismo y Sabores</span></b> <br>
+             <i> <span class="tamanio">Huánuco Tech +</span></i>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="hora-color">9:00 - 9:30 am</td>
+            <td>--------</td>
+            
+          </tr>
+          <tr>
+            <td class="hora-color">9:30 -10:00 am</td>
+            <td>--------</td>
+            
+          </tr>
+          <tr>
+            <td class="hora-color">10:00 -10:30 am</td>
+            <td rowspan="2"><b> <span>Capital Day: <br>Presentación del progrma Mypes 4.0 para la generación plateada.</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          
+          </tr>
+          <tr>
+            <td class="hora-color">10:30 - 11:00 am</td>
+          </tr>
+          <tr>
+            <td class="hora-color">11:00 - 11:30 am</td>
+            <td><b> <span>Capital Day: <br>IA para MYPES automatiza y potencia tu emprendimiento(Adolfo palomino)</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+           
+
+          </tr>
+          <tr>
+            <td class="hora-color">11:30 - 12:00 pm</td>
+            <td><b> <span>Capital Day: <br>Casos de éxito de emprendedores.</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+           
+          </tr>
+          <tr>
+            <td class="hora-color">12:00 - 12:30 pm</td>
+            <td rowspan="2"><b> <span>Capital Day: <br>Inversionistas sin filtro: lo que sí y lo que no</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+           
+          </tr>
+          <tr>
+            <td class="hora-color">12:30 - 1:00 pm</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="libre">Libre</td>
+          </tr>
+          <tr>
+            <td class="hora-color">3:00 - 3:30 pm</td>
+            <td><b> <span>Conferencias: <br>Potenciando el turismo: Innovacion Turistica</span></b> <br>
+             <i> <span class="tamanio">Huánuco Tech +</span></i></td>
+            <td rowspan="6" class="paralelo">
+              <div class="">
+                <b> <span>Feria de Innovación, Startups, Turismo y Sabores</span></b> <br>
+             <i> <span class="tamanio">Huánuco Tech +</span></i>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="hora-color">3:30 - 4:00 pm</td>
+            <td><b> <span>Capital Day: <br>Fuentes de financiamiento público en Perú</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          </tr>
+          <tr>
+            <td class="hora-color">4:00 - 4:30 pm</td>
+            <td rowspan="4"><b> <span>Capital Day: <br>Ring de Las Startups</span></b> <br>
+             <i> <span class="tamanio">Startup Summit Regional <br> Incuval Ventures - UNHEVAL</span></i></td>
+          
+          </tr>
+          <tr>
+            <td class="hora-color">4:30 - 5:00 pm</td>
+            
+          </tr>
+          <tr>
+            <td class="hora-color">5:00 - 5:30 pm</td>
+           
+          </tr>
+          <tr>
+            <td class="hora-color">5:30 - 6:00 pm</td>
+          </tr>
+          <tr>
+            <td class="hora-color">6:00 - 9:00 pm</td>
+            <td rowspan="2" colspan="2"><b>  <span>Networking</span></b> <br>
+             <i> <span class="tamanio">Huánuco Tech +</span></i></td>
+          
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+        <!-- Día 5 -->
+    <div id="dia5" class="tab-content1">
+      <div class="agenda-cards">
+
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 9:00 - 1:00 pm</h3>
+          <p><b> <span>Bootcamp de Innovación</span></b> <br><i> <span class="tamanio">INCUVA UNAS - Tingo María</span></i></p>
+
+          <div class="sub-card">
+            <p><strong>En Paralelo:</strong><b> <span>City Tours</span></b> <br><i> <span class="tamanio">DIRCETUR</span></i></p>
+          </div>
+        </div>
+
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 12:00 - 1:00 pm</h3>
+          <p><b> <span>Bootcamp de Innovación</span></b> <br><i> <span class="tamanio">INCUVA UNAS - Tingo María</span></i></p>
+        </div>
+
+        <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 1:00 - 3:00 pm</h3>
+          <p>LIBRE</p>
+        </div>
+
+       <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 3:00 - 4:30 pm</h3>
+          <p><b> <span>Ring de las Startups</span></b> </p>
+        </div>
+
+
+         <div class="agenda-card">
+          <h3><i data-lucide="clock"></i> 4:30 - 7:00 pm</h3>
+          <p><b> <span>Cierre Huánuco Tech +</span></b> </p>
+        </div>
+
+
+      
+
+</div>
+      <!-- Versión tabla -->
+      <table class="agenda-table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Evento Principal</th>
+            <th>Evento Paralelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hora-color">9:00 - 10:00 am</td>
+            <td rowspan="5"><b> <span>Bootcamp de Innovación</span></b> <br>
+             <i> <span class="tamanio">INCUVA UNAS - Tingo María</span></i></td>
+            <td rowspan="4" class="">
+              <div class="">
+                <b> <span>City Tours</span></b> <br>
+             <i> <span class="tamanio">DIRCETUR</span></i>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="hora-color">10:00 - 11:00 am</td>
+          </tr>
+          <tr>
+            <td class="hora-color">11:00 - 12:00 pm</td>
+          </tr>
+          <tr>
+            <td class="hora-color">12:00 - 12:30 pm</td>
+          </tr>
+          <tr>
+            <td class="hora-color">12:30 - 1:00 pm</td>
+            <td>--------</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="libre">Libre</td>
+          </tr>
+          <tr>
+            <td class="hora-color">3:00 - 3:30 pm</td>
+            <td rowspan="3" colspan="2"><b> <span>Ring de las Startups</span></b></td>
+          </tr>
+          <tr>
+            
+          </tr>
+          <tr>
+            <td class="hora-color">4:00 - 4:30 pm</td>
+          </tr>
+          <tr>
+            <td class="hora-color">4:30 - 5:00 pm</td>
+            <td rowspan="3" colspan="2"><b> <span>Cierre Huánuco Tech +</span></b></td>
+          
+          </tr>
+          <tr>
+            <td class="hora-color">5:00 - 6:00 pm</td>
+          </tr>
+          <tr>
+            <td class="hora-color">6:00 - 7:00 pm</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- Sección de sponsors -->
+<section class="sponsors1" id="patrocinadores">
+  <h2>PATROCINADORES</h2>
+
+  <div class="sponsor-level oro">
+    <h3>ORO</h3>
+    <div class="logos">
+  <img src="imagenes/patrocinadores/mayu-go.svg" alt="Sponsor Oro 1" class="pulse">
+  </div>
+  </div>
+
+  <div class="sponsor-level1 plata">
+    <h3>PLATA</h3>
+    <div class="logos">
+      <img src="imagenes/patrocinadores/Logo_Lawn_Tennis.png" alt="Sponsor Oro 1" class="pulse">
+  <img src="imagenes/patrocinadores/MUSEO_LEONCIO_PRADO.png" alt="Sponsor Oro 2" class="bounce">
+    </div>
+  </div>
+
+  <div class="sponsor-level bronce">
+    <h3>BRONCE</h3>
+    <div class="logos">
+      <img src="imagenes/patrocinadores/word-vision1.png" alt="Sponsor Oro 1" class="pulse">
+  </div>
+  </div>
+  <div class="cta-container">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLHS9JIWUXnB1as49_vatPgI3mvsQx7ALHPdS9sKDi-8dL-g/viewform" target="_blank" class="cta-button">CONVIÉRTETE EN PATROCINADOR</a>
+  </div>
+</section>
+
+<!--el futuro es ahoraaaa-->
+<section class="future-section">
+  <div class="future-container">
+    <div class="future-text">
+      <h2 class="gradient-text"><span class="rocket">🚀</span> El futuro es ahora</h2>
+      <p>Unimos a la comunidad tecnológica para construir el mañana.</p>
+    </div>
+    <div class="future-stats">
+      <div class="stat">
+        <h3 class="counter" data-target="12500">0</h3>
+        <p>Asistentes</p>
+      </div>
+      <div class="stat">
+        <h3 class="counter" data-target="850">0</h3>
+        <p>Inversionistas</p>
+      </div>
+      <div class="stat">
+        <h3 class="counter" data-target="200">0</h3>
+        <p>Eventos</p>
+      </div>
+      <div class="stat">
+        <h3 class="counter" data-target="300">0</h3>
+        <p>Corporativos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="experiencia" id="edicion">
+  <h2>Nuestra experiencia del 2024</h2>
+
+  <!-- Carrusel solo en escritorio -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="imagenes/experiencia/3.jpg" alt="Foto 1"></div>
+      <div class="swiper-slide"><img src="imagenes/experiencia/4.jpg" alt="Foto 2"></div>
+      <div class="swiper-slide"><img src="imagenes/experiencia/9.jpg" alt="Foto 3"></div>
+      <div class="swiper-slide"><img src="imagenes/experiencia/10.jpg" alt="Foto 2"></div>
+      <div class="swiper-slide"><img src="imagenes/experiencia/11.jpg" alt="Foto 2"></div>
+      <div class="swiper-slide"><img src="imagenes/experiencia/12.jpg" alt="Foto 2"></div>
+      <div class="swiper-slide"><img src="imagenes/experiencia/13.jpg" alt="Foto 2"></div>
+      <div class="swiper-slide"><img src="imagenes/experiencia/14.jpg" alt="Foto 2"></div>
+      <div class="swiper-slide"><img src="imagenes/experiencia/15.jpg" alt="Foto 2"></div>
+      
+    </div>
+  </div>
+
+  <!-- Vista móvil: imágenes normales -->
+  <div class="mobile-gallery1">
+    <img src="imagenes/experiencia/3.jpg" alt="Foto 1">
+<img src="imagenes/experiencia/4.jpg" alt="Foto 2">
+<img src="imagenes/experiencia/9.jpg" alt="Foto 3">
+<img src="imagenes/experiencia/10.jpg" alt="Foto 2">
+<img src="imagenes/experiencia/11.jpg" alt="Foto 2">
+<img src="imagenes/experiencia/12.jpg" alt="Foto 2">
+<img src="imagenes/experiencia/13.jpg" alt="Foto 2">
+<img src="imagenes/experiencia/14.jpg" alt="Foto 2">
+<img src="imagenes/experiencia/15.jpg" alt="Foto 2">
+  </div>
+</section>
+
+<!--Nuestros Complices-->
+<section class="section" id="complices">
+    <h2>Nuestros Cómplices</h2>
+    <div class="tabs">
+      <button class="tab-btn2 active" data-tab="organizadores">Aliados</button>
+      <button class="tab-btn2" data-tab="sponsors">Anfitriones</button>
+    </div>
+
+    <!-- Organizadores -->
+    <div id="organizadores" class="tab-content active">
+      <div class="logo-slider">
+        <div class="logo-track">
+          <img src="imagenes/aliados/unheval.png" alt="Organizador 1">
+          <img src="imagenes/aliados/JUAN BOSCO.png" alt="Organizador 2">
+          <img src="imagenes/aliados/camara.png" class="logo-comercio" alt="Organizador 3">
+          <img src="imagenes/aliados/innovate.png" alt="Organizador 4">
+          <img src="imagenes/aliados/UNAS.png" alt="Organizador 5">
+          <img src="imagenes/aliados/GRDE.png" alt="Organizador 4">
+          <img src="imagenes/aliados/UDH.png" alt="Organizador 4">
+          <!-- duplicados -->
+          <img src="imagenes/aliados/unheval.png" alt="Organizador 1">
+          <img src="imagenes/aliados/JUAN BOSCO.png" alt="Organizador 2">
+          <img src="imagenes/aliados/camara.png" class="logo-comercio" alt="Organizador 3">
+          <img src="imagenes/aliados/innovate.png" alt="Organizador 4">
+          <img src="imagenes/aliados/UNAS.png" alt="Organizador 5">
+          <img src="imagenes/aliados/GRDE.png" alt="Organizador 5">
+          <img src="imagenes/aliados/UDH.png" alt="Organizador 5">
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Anfitriones -->
+    <div id="sponsors" class="tab-content">
+      <div class="logo-slider">
+        <div class="logo-track">
+          <img src="imagenes/anfitriones/dircetur.png" alt="anfitrion 3">
+          <img src="imagenes/anfitriones/CREO HUÁNUCO - ALIADO.png" alt="anfitrion 1">
+          <img src="imagenes/anfitriones/DREMHCO.png" alt="anfitrion 4">
+          <img src="imagenes/anfitriones/DI LOGO.png" alt="anfitrion 2">
+          <img src="imagenes/anfitriones/INIA_LOGO.png" alt="anfitrion 5">
+          <img src="imagenes/anfitriones/LOGO DIREPRO COLORES.png" alt="anfitrion 6">
+
+          <!-- duplicados -->
+          <img src="imagenes/anfitriones/CREO HUÁNUCO - ALIADO.png" alt="anfitrion 1">
+          <img src="imagenes/anfitriones/DREMHCO.png" alt="anfitrion 4">
+                    <img src="imagenes/anfitriones/DI LOGO.png" alt="anfitrion 2">
+          <img src="imagenes/anfitriones/INIA_LOGO.png" alt="anfitrion 5">
+          <img src="imagenes/anfitriones/LOGO UT.png" alt="anfitrion 7">
+          <img src="imagenes/anfitriones/dircetur.png" alt="anfitrion 3">
+
+        </div>
+    </div>
+  </div>
+</section>
+
+<!--BENEFICIOS-->
+<section class="colaboradores" id="forma">
+  <h2 class="section-title">Beneficios</h2>
+
+  <div class="cards-flex">
+    <!-- Aliados -->
+    <div class="card">
+      <h3>Aliados</h3>
+      <p>Coorganizan junto al comité principal de Incuval Ventures la agena central
+        del Huánuco Tech +, brindando apoyo institucional, logístico o académico
+      </p>
+      <a href="https://wa.me/51958302657?text=Hola,%20quiero%20ser%20aliado" target="_blank" class="card-btn">Quiero ser Aliado</a>
+    </div>
+
+    <!-- Anfitriones -->
+    <div class="card">
+      <h3>Anfitriones</h3>
+      <p>Organizan actividades propias alineadas con los ejes temáticos del Huánuco Tech +, con autonomía,
+        pero dentro de los lineamientos establecidos. Estas experiencias pueden incluir talleres,
+        charlas, exposiciones o dinámicas de conexión.
+      </p>
+      <a href="https://wa.me/51958302657?text=Hola,%20quiero%20ser%20anfitrión" target="_blank" class="card-btn">Quiero ser Anfitrión</a>
+    </div>
+
+    <!-- Sponsors -->
+    <div class="card">
+      <h3>Sponsors</h3>
+      <p>Aportan recursos económicos o en especie que permiten financiar y fortalecer la realización de actividades
+        del Huánuco Tech +.
+      </p>
+      <a href="https://wa.me/51958302657?text=Hola,%20quiero%20ser%20sponsor" target="_blank" class="card-btn">Quiero ser Sponsor</a>
+    </div>
+  </div>
+</section>
+
+<!--preguntas frecuentess-->
+<section class="faq" id="preguntas">
+  <h2 class="faq-title">Preguntas Frecuentes</h2>
+
+  <!-- ====== MOBILE: Accordion por categoría ====== -->
+  <div class="faq-accordion" aria-label="Preguntas Frecuentes (móvil)">
+    <!-- Asistentes -->
+    <div class="acc-item">
+  <button class="acc-header" aria-expanded="true">
+    Asistentes<span class="acc-icon">+</span>
+  </button>
+  <div class="acc-panel" style="display:block;">
+
+    <div class="faq-item">
+      <button class="faq-q">¿Qué es Huánuco Tech+  ?<span>+</span></button>
+      <div class="faq-a">
+        La Semana Tecnológica de Huánuco es un evento comunitario donde la comunidad tecnológica se reúne. 
+        A lo largo de la semana, emprendedores, inversores y nuevas empresas organizan sus propios eventos descentralizados, 
+        incluidos paneles, eventos de networking, actividades deportivas y más.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Cuándo se llevará a cabo Huánuco Tech+  ?<span>+</span></button>
+      <div class="faq-a">
+        Huánuco Tech+   se llevará a cabo del 20 al 26 de octubre de 2025 en varios lugares de la Ciudad de Huánuco.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Cómo puedo asistir a eventos en Huánuco Tech+  ?<span>+</span></button>
+      <div class="faq-a">
+        Para asistir a cualquier evento en Huánuco Tech+  , debes registrarte a través de nuestra plataforma <a href="https://campusincuval.unheval.edu.pe/inscripcion-evento/9" target="_blank" class="campus">Campus Incuval</a>.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Existe un costo para asistir a los eventos de Huánuco Tech+  ?<span>+</span></button>
+      <div class="faq-a">
+        La mayoría de los eventos son gratuitos, gracias al apoyo de nuestros socios y patrocinadores. 
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Cómo puedo seguir las actualizaciones en Huánuco Tech+  ?<span>+</span></button>
+      <div class="faq-a">
+        Para conocer las últimas noticias y actualizaciones, síguenos en todas nuestras redes sociales,
+        <strong><a href="https://linktr.ee/huanucotech" target="_blank">huanucotech+</a></strong> 
+        también visita nuestro sitio web con regularidad y asegúrate de registrarte en la opción 
+        <em>"Ser notificado"</em> para recibir notificaciones directas.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Qué tipo de eventos puedo esperar en Huánuco Tech+  ?<span>+</span></button>
+      <div class="faq-a">
+        Huánuco Tech+   incluye una amplia variedad de eventos, desde paneles de discusión y talleres hasta reuniones de networking 
+        y actividades recreativas. Todos están diseñados para fomentar la colaboración y el intercambio de ideas dentro 
+        de la comunidad tecnológica.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">¿Puedo participar en más de un evento?<span>+</span></button>
+      <div class="faq-a">
+        ¡Por supuesto! Podrás registrarte y participar en tantos eventos como desees, siempre que los horarios no se superpongan. 
+        Si necesitas cancelar tu asistencia, hazlo lo antes posible para permitir que otras personas interesadas ocupen tu lugar.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <!-- Patrocinadores -->
+    <div class="acc-item">
+      <button class="acc-header" aria-expanded="false">
+        Patrocinadores <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-panel">
+        <div class="faq-item">
+  <button class="faq-q">¿Cómo puedo convertirme en patrocinador de Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    Complete el formulario “Conviértase en patrocinador” en nuestro sitio web o contáctenos directamente en nuestras redes sociales.<b><a href="https://linktr.ee/huanucotech" target="_blank"> Aquí</a></b>.
+  </div>
+</div>
+
+<!--<div class="faq-item">
+  <button class="faq-q">¿Cuáles son los beneficios de ser el patrocinador principal de Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    Como patrocinador, recibirás:
+    <ul>
+      <li>Inclusión en nuestro Kit Central de Patrocinio (camisetas, pancartas, activos digitales) compartido con todos los anfitriones de toda la ciudad.</li>
+      <li>Colocación de logotipos premium en nuestro sitio web y páginas de eventos.</li>
+      <li>Presencia exclusiva en la Ceremonia Inaugural y Tech House.</li>
+      <li>Visibilidad regular en nuestras redes sociales y campañas de correo electrónico.</li>
+    </ul>
+  </div>
+</div>-->
+
+<div class="faq-item">
+  <button class="faq-q">¿Cómo puedo patrocinar un evento específico que aparece en el sitio web de Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    Para patrocinar un evento específico, envíe un mensaje a nuestras redes sociales. <b><a href="https://linktr.ee/huanucotech" target="_blank">HuánucoTech+  </a></b>  Solicitando que lo conectemos con el organizador del evento.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Puedo organizar y patrocinar mi propio evento durante Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    Sí, alentamos a los patrocinadores a crear y organizar sus propios eventos, y nuestro equipo central también estará encantado de ayudar.  
+    Para obtener más información y requisitos, consulte las preguntas frecuentes para anfitriones en nuestro sitio web.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Qué tipo de visibilidad obtendré como patrocinador?<span>+</span></button>
+  <div class="faq-a">
+    La visibilidad varía según el tipo de patrocinio.  
+    Los patrocinadores principales reciben la máxima exposición a través de materiales promocionales, en el sitio web, durante la ceremonia de apertura y en todas las comunicaciones de Huánuco Tech+  .
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Cuál es el impacto de patrocinar Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    El año pasado, Huánuco Tech+   reunió a más de 9.000 asistentes en 200+ eventos.  
+    Este año esperamos superar esas cifras, ofreciendo una oportunidad excepcional para demostrar su apoyo y compromiso con la innovación tecnológica y el crecimiento de la comunidad tecnológica.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Cómo puedo comunicarme con el equipo de Huánuco Tech+   para obtener más detalles sobre el patrocinio?<span>+</span></button>
+  <div class="faq-a">
+    Para consultas adicionales, envíe un correo electrónico a <b>hola@mexicotechweek.mx</b>.
+  </div>
+</div>
+      </div>
+    </div>
+
+    <!-- Anfitriones -->
+    <div class="acc-item">
+      <button class="acc-header" aria-expanded="false">
+        Anfitriones <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-panel">
+        <div class="faq-item">
+  <button class="faq-q">¿Cómo puedo convertirme en anfitrión de eventos en Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">Para convertirse en anfitrión, visite nuestras redes sociales. Describa su evento en detalle para facilitar su aprobación por parte del comité Huánuco Tech+  .</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Qué tipos de eventos puedo organizar durante Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">Huánuco Tech+   da la bienvenida a todo tipo de eventos relacionados con la tecnología, desde paneles, sesiones de networking y actividades de bienestar hasta eventos deportivos y almuerzos. La clave es que su evento fomente la interacción y el aprendizaje dentro de la comunidad tecnológica.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Puedo decidir la capacidad y el proceso de aprobación de los asistentes a mi evento?<span>+</span></button>
+  <div class="faq-a">Sí. Cada organizador tiene la libertad de definir el número máximo de asistentes y decidir si aprueba a cada participante individualmente o permite la entrada abierta hasta alcanzar la capacidad.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Cómo elijo la ubicación de mi evento?<span>+</span></button>
+  <div class="faq-a">Como anfitrión, tienes total autonomía para elegir la ubicación de tu evento. Es importante seleccionar un lugar que sea accesible y adecuado para el tipo de evento que estás planeando.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Existen criterios específicos que mi evento debe cumplir para ser aprobado?<span>+</span></button>
+  <div class="faq-a">Su evento debe alinearse con los objetivos de la comunidad tecnológica y fomentar un entorno seguro y respetuoso para todos los participantes. Todos los eventos son revisados por el comité Huánuco Tech+   para garantizar que cumplan con estos estándares.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Qué soporte ofrece Huánuco Tech+   a los anfitriones de eventos?<span>+</span></button>
+  <div class="faq-a">Huánuco Tech+   brinda visibilidad a través de su plataforma y canales de redes sociales, así como acceso a una red de socios y patrocinadores potenciales. Los anfitriones son responsables de la organización y logística completa de sus eventos.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Existen costos asociados con la organización de un evento en Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">No existen tarifas iniciales cobradas por Huánuco Tech+   a los anfitriones. Sin embargo, los organizadores son responsables de cualquier costo operativo relacionado con la realización de su evento.</div>
+</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== DESKTOP: Tabs clásicas ====== -->
+  <div class="faq-tabs" aria-label="Preguntas Frecuentes (desktop)">
+    <div class="tab-list" role="tablist">
+      <button class="tab-btn active" role="tab" aria-controls="tab-asist" aria-selected="true">Asistentes</button>
+      <button class="tab-btn" role="tab" aria-controls="tab-patro" aria-selected="false">Patrocinadores</button>
+      <button class="tab-btn" role="tab" aria-controls="tab-anfit" aria-selected="false">Anfitriones</button>
+    </div>
+    <div class="tab-panels">
+      <div class="tab-panel active" id="tab-asist" role="tabpanel">
+        <div class="faq-item">
+  <button class="faq-q">¿Qué es Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    La Semana Tecnológica de Huánuco es un evento comunitario donde la comunidad tecnológica se reúne. 
+    A lo largo de la semana, emprendedores, inversores y nuevas empresas organizan sus propios eventos descentralizados, 
+    incluidos paneles, eventos de networking, actividades deportivas y más.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Cuándo se llevará a cabo Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    Huánuco Tech+   se llevará a cabo del 15 al 19 de Septiembre de 2025 en varios lugares de la Ciudad de Huánuco.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Cómo puedo asistir a eventos en Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    Para asistir a cualquier evento en Huánuco Tech+  , debes registrarte a través de nuestra plataforma <a href="https://campusincuval.unheval.edu.pe/inscripcion-evento/9" target="_blank" class="campus">Campus Incuval</a>.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Existe un costo para asistir a los eventos de Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    La mayoría de los eventos son gratuitos, gracias al apoyo de nuestros socios y patrocinadores. 
+    
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Cómo puedo seguir las actualizaciones en Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+           Para conocer las últimas noticias y actualizaciones, síguenos en todas nuestras redes sociales,
+        <strong><a href="https://linktr.ee/huanucotech" target="_blank">huanucotech+</a></strong> 
+        también visita nuestro sitio web con regularidad y asegúrate de registrarte en la opción 
+        <em>"Ser notificado"</em> para recibir notificaciones directas.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Qué tipo de eventos puedo esperar en Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    Huánuco Tech+   incluye una amplia variedad de eventos, desde paneles de discusión y talleres hasta reuniones de networking 
+    y actividades recreativas. Todos están diseñados para fomentar la colaboración y el intercambio de ideas dentro 
+    de la comunidad tecnológica.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Puedo participar en más de un evento?<span>+</span></button>
+  <div class="faq-a">
+    ¡Por supuesto! Podrás registrarte y participar en tantos eventos como desees, siempre que los horarios no se superpongan. 
+    Si necesitas cancelar tu asistencia, hazlo lo antes posible para permitir que otras personas interesadas ocupen su lugar.
+  </div>
+</div>
+      </div>
+
+
+      <div class="tab-panel" id="tab-patro" role="tabpanel">
+        <div class="faq-item">
+  <button class="faq-q">¿Cómo puedo convertirme en patrocinador de Huánuco Tech+  ?<span>+</span></button>
+<div class="faq-a">
+    Complete el formulario “Conviértase en patrocinador” en nuestro sitio web o contáctenos directamente en nuestras redes sociales.<b><a href="https://linktr.ee/huanucotech" target="_blank"> Aquí</a></b>.
+  </div>
+</div>
+
+<!--<div class="faq-item">
+  <button class="faq-q">¿Cuáles son los beneficios de ser el patrocinador principal de Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    Como patrocinador, recibirás:
+    <ul>
+      <li>Inclusión en nuestro Kit Central de Patrocinio (camisetas, pancartas, activos digitales) compartido con todos los anfitriones de toda la ciudad.</li>
+      <li>Colocación de logotipos premium en nuestro sitio web y páginas de eventos.</li>
+      <li>Presencia exclusiva en la Ceremonia Inaugural y Tech House.</li>
+      <li>Visibilidad regular en nuestras redes sociales y campañas de correo electrónico.</li>
+    </ul>
+  </div>
+</div>-->
+
+<div class="faq-item">
+  <button class="faq-q">¿Cómo puedo patrocinar un evento específico que aparece en el sitio web de Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    Para patrocinar un evento específico, envíe un mensaje a nuestras redes sociales. <b><a href="https://linktr.ee/huanucotech" target="_blank">HuánucoTech+  </a></b>  Solicitando que lo conectemos con el organizador del evento.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Puedo organizar y patrocinar mi propio evento durante Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    Sí, alentamos a los patrocinadores a crear y organizar sus propios eventos, y nuestro equipo central también estará encantado de ayudar.  
+    Para obtener más información y requisitos, consulte las preguntas frecuentes para anfitriones en nuestro sitio web.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Qué tipo de visibilidad obtendré como patrocinador?<span>+</span></button>
+  <div class="faq-a">
+    La visibilidad varía según el tipo de patrocinio.  
+    Los patrocinadores principales reciben la máxima exposición a través de materiales promocionales, en el sitio web, durante la ceremonia de apertura y en todas las comunicaciones de Huánuco Tech+  .
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Cuál es el impacto de patrocinar Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">
+    El año pasado, Huánuco Tech+   reunió a más de 9.000 asistentes en 200+ eventos.  
+    Este año esperamos superar esas cifras, ofreciendo una oportunidad excepcional para demostrar su apoyo y compromiso con la innovación tecnológica y el crecimiento de la comunidad tecnológica.
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Cómo puedo comunicarme con el equipo de Huánuco Tech+   para obtener más detalles sobre el patrocinio?<span>+</span></button>
+  <div class="faq-a">
+    Para consultas adicionales, envíe un correo electrónico a <b>hola@mexicotechweek.mx</b>.
+  </div>
+</div>
+      </div>
+
+      <div class="tab-panel" id="tab-anfit" role="tabpanel">
+        <div class="faq-item">
+  <button class="faq-q">¿Cómo puedo convertirme en anfitrión de eventos en Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">Para convertirse en anfitrión, visite nuestras redes sociales. Describa su evento en detalle para facilitar su aprobación por parte del comité Huánuco Tech+  .</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Qué tipos de eventos puedo organizar durante Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">Huánuco Tech+   da la bienvenida a todo tipo de eventos relacionados con la tecnología, desde paneles, sesiones de networking y actividades de bienestar hasta eventos deportivos y almuerzos. La clave es que su evento fomente la interacción y el aprendizaje dentro de la comunidad tecnológica.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Puedo decidir la capacidad y el proceso de aprobación de los asistentes a mi evento?<span>+</span></button>
+  <div class="faq-a">Sí. Cada organizador tiene la libertad de definir el número máximo de asistentes y decidir si aprueba a cada participante individualmente o permite la entrada abierta hasta alcanzar la capacidad.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Cómo elijo la ubicación de mi evento?<span>+</span></button>
+  <div class="faq-a">Como anfitrión, tienes total autonomía para elegir la ubicación de tu evento. Es importante seleccionar un lugar que sea accesible y adecuado para el tipo de evento que estás planeando.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Existen criterios específicos que mi evento debe cumplir para ser aprobado?<span>+</span></button>
+  <div class="faq-a">Su evento debe alinearse con los objetivos de la comunidad tecnológica y fomentar un entorno seguro y respetuoso para todos los participantes. Todos los eventos son revisados por el comité Huánuco Tech+   para garantizar que cumplan con estos estándares.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">¿Qué soporte ofrece Huánuco Tech+   a los anfitriones de eventos?<span>+</span></button>
+  <div class="faq-a">Huánuco Tech+   brinda visibilidad a través de su plataforma y canales de redes sociales, así como acceso a una red de socios y patrocinadores potenciales. Los anfitriones son responsables de la organización y logística completa de sus eventos.</div>
+</div>
+
+
+
+<div class="faq-item">
+  <button class="faq-q">¿Existen costos asociados con la organización de un evento en Huánuco Tech+  ?<span>+</span></button>
+  <div class="faq-a">No existen tarifas iniciales cobradas por Huánuco Tech+   a los anfitriones. Sin embargo, los organizadores son responsables de cualquier costo operativo relacionado con la realización de su evento.</div>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--footer-->
+<footer class="footer-marquee">
+
+  <!-- Footer Content -->
+  <div class="footer-content">
+    <div class="footer-left">
+      <p>© 2025 Huánuco Tech Week</p>
+      <a href="#">Política de privacidad</a>-<a href="#">Términos</a>
+    </div>
+    <div class="footer-right">
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:" aria-label="Correo"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marquee-content">
+      <span>📅 15 - 19 SEPTIEMBRE 2025 </span>
+      <span>📅 15 - 19 SEPTIEMBRE 2025 </span>
+      <span>📅 15 - 19 SEPTIEMBRE 2025 </span>
+  </div>
+
+  
+</footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menu-btn");
+  const closeBtn = document.getElementById("close-btn");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  function openSidebar() {
+    sidebar.classList.add("open");
+    overlay.classList.add("show");
+    menuBtn.setAttribute("aria-expanded", "true");
+    sidebar.setAttribute("aria-hidden", "false");
+    overlay.setAttribute("aria-hidden", "false");
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("show");
+    menuBtn.setAttribute("aria-expanded", "false");
+    sidebar.setAttribute("aria-hidden", "true");
+    overlay.setAttribute("aria-hidden", "true");
+  }
+
+  menuBtn.addEventListener("click", openSidebar);
+  closeBtn.addEventListener("click", closeSidebar);
+  overlay.addEventListener("click", closeSidebar);
+
+  // 🔹 Aquí el fix: cerrar menú al hacer click en cualquier enlace del sidebar
+  document.querySelectorAll("#sidebar a").forEach((link) => {
+    link.addEventListener("click", () => {
+      closeSidebar();
+      // No se hace preventDefault, así que la redirección funciona normal
+    });
+  });
+
+  // Cierra el menú si el usuario presiona Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeSidebar();
+  });
+
+  // Si el usuario cambia el tamaño y pasa a desktop, asegurar que el sidebar se cierre
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) closeSidebar();
+  });
+});
+
+
+// Fecha objetivo (23 de octubre a las 00:00)
+const fechaEvento = new Date("2025-09-15T00:00:00").getTime();
+
+function actualizarContador() {
+  const ahora = new Date().getTime();
+  const diferencia = fechaEvento - ahora;
+
+  if (diferencia < 0) {
+    document.getElementById("contador").innerHTML = "¡El evento ha comenzado!";
+    return;
+  }
+
+  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+  const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+  document.getElementById("dias").textContent = dias;
+  document.getElementById("horas").textContent = horas;
+  document.getElementById("minutos").textContent = minutos;
+  document.getElementById("segundos").textContent = segundos;
+}
+
+setInterval(actualizarContador, 1000);
+
+//agendaaaaaaaa
+
+document.querySelectorAll(".tab-btn1").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn1").forEach(b => {
+          b.classList.remove("active1");
+          b.setAttribute("aria-selected", "false");
+        });
+        document.querySelectorAll(".tab-content1").forEach(tc => tc.classList.remove("active1"));
+
+        btn.classList.add("active1");
+        btn.setAttribute("aria-selected", "true");
+        document.getElementById(btn.dataset.tab).classList.add("active1");
+      });
+    });
+
+    // Renderizar íconos de Lucide
+    lucide.createIcons();
+
+
+//complicesss
+const buttons = document.querySelectorAll(".tab-btn2");
+    const contents = document.querySelectorAll(".tab-content");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
+
+
+    //el futuro es ahora
+
+     const counters = document.querySelectorAll('.counter');
+  const speed = 100; // velocidad de animación
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+
+        const increment = Math.ceil(target / speed);
+
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target.toLocaleString(); // con separador de miles
+        }
+      };
+      updateCount();
+    });
+  };
+
+  // Detectar cuando entra en pantalla
+  const section = document.querySelector('.future-section');
+  let started = false;
+  window.addEventListener('scroll', () => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < window.innerHeight && !started) {
+      animateCounters();
+      started = true;
+    }
+  });
+//carrusel
+// Carrusel solo se muestra en escritorio
+const swiper = new Swiper(".mySwiper", {
+  slidesPerView: 4,
+  slidesPerGroup: 1, // <- Avanza de a 1 imagen
+  loop: false, // No ilimitado
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    0: { // Móvil
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      autoplay: false // Desactiva el auto en móvil
+    },
+    768: { // Escritorio
+      slidesPerView: 4,
+      slidesPerGroup: 1,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false
+      }
+    }
+  }
+});
+
+//preguntas frecuentes
+// ---------- MOBILE: acordeón por categoría ----------
+document.querySelectorAll('.faq-accordion .acc-header').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const panel = item.querySelector('.acc-panel');
+    const isOpen = item.classList.contains('open');
+
+    // Cerrar otros (solo uno abierto a la vez)
+    document.querySelectorAll('.faq-accordion .acc-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.acc-header').setAttribute('aria-expanded', 'false');
+      const p = i.querySelector('.acc-panel');
+      if (p) p.style.display = 'none';
+    });
+
+    // Abrir el actual si no estaba abierto
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      panel.style.display = 'block';
+    }
+  });
+});
+
+// Acordeón de preguntas (mobile y desktop)
+function bindInnerFaq(scope) {
+  scope.querySelectorAll('.faq-item .faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const ans = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+
+      // (opcional) cerrar hermanos dentro del mismo bloque
+      item.parentElement.querySelectorAll('.faq-item').forEach(sib => {
+        if (sib !== item) {
+          sib.classList.remove('open');
+          const a = sib.querySelector('.faq-a');
+          if (a) a.style.display = 'none';
+        }
+      });
+
+      item.classList.toggle('open', !isOpen);
+      ans.style.display = isOpen ? 'none' : 'block';
+    });
+  });
+}
+// Enlazar para mobile y desktop
+bindInnerFaq(document);
+
+// ---------- DESKTOP: tabs ----------
+const tabBtns = document.querySelectorAll('.faq-tabs .tab-btn');
+const tabPanels = document.querySelectorAll('.faq-tabs .tab-panel');
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected','true');
+
+    tabPanels.forEach(p => p.classList.remove('active'));
+    const targetId = btn.getAttribute('aria-controls');
+    document.getElementById(targetId).classList.add('active');
+  });
+});
+
+
+//fondos de colores
+
+  </script>
+</body>
+</html>
